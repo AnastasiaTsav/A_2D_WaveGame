@@ -7,11 +7,11 @@ import java.util.Random;
 
 public class MenuParticle extends GameObject{
 
-	private Handler handler;
+	private final Handler handler;
 	
 	Random r = new Random();
 	
-	private Color col;
+	private final Color col;
 	
 	public MenuParticle(int x, int y, ID id, Handler handler) {
 		super(x, y, id);

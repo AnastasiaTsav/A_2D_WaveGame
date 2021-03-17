@@ -4,10 +4,10 @@ import java.util.Random;
 
 public class Spawn {
 
-	private Handler handler;
-	private HUD hud;
-	private Game game;
-	private Random r = new Random();
+	private final Handler handler;
+	private final HUD hud;
+	private final Game game;
+	private final Random r = new Random();
 
 	private int scoreKeep = 0;
 

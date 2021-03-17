@@ -7,8 +7,8 @@ import com.tutorial.main.Game.STATE;
 
 public class KeyInput extends KeyAdapter{
 
-	private Handler handler;
-	private boolean[] keyDown = new boolean[4];
+	private final Handler handler;
+	private final boolean[] keyDown = new boolean[4];
 	
 	Game game;
 	
@@ -41,9 +41,8 @@ public class KeyInput extends KeyAdapter{
 		}
 		if(key == KeyEvent.VK_P) {
 
-			if(game.gameState == STATE.Game) {
-				if(Game.paused) Game.paused = false;
-				else Game.paused = true;
+			if(Game.gameState == STATE.Game) {
+				Game.paused = !Game.paused;
 			}
 		}
 		if(key == KeyEvent.VK_ESCAPE) System.exit(1);

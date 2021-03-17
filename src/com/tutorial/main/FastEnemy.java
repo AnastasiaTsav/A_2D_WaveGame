@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 
 public class FastEnemy extends GameObject{
 
-	private Handler handler;
+	private final Handler handler;
 	
 	public FastEnemy(int x, int y, ID id, Handler handler) {
 		super(x, y, id);

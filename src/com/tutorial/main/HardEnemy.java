@@ -7,9 +7,9 @@ import java.util.Random;
 
 public class HardEnemy extends GameObject{
 
-    private Handler handler;
+    private final Handler handler;
 
-    private Random r = new Random();
+    private final Random r = new Random();
 
     public HardEnemy(int x, int y, ID id, Handler handler) {
         super(x, y, id);

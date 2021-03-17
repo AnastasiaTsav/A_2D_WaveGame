@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class EnemyBoss extends GameObject{
 
-	private Handler handler;
+	private final Handler handler;
 	Random r = new Random();
 	
 	private int timer = 80;
@@ -38,7 +38,7 @@ public class EnemyBoss extends GameObject{
 			if(velX == 0) velX = 2;
 			
 			if(velX > 0) velX += 0.005f;
-			else if(velX < 0) velX -= 0.005f;
+			else velX -= 0.005f;
 			
 			velX = Game.clamp(velX, -10, 10);
 			

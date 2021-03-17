@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 
 public class SmartEnemy extends GameObject{
 
-	private Handler handler;
+	private final Handler handler;
 	private GameObject player;
 	
 	public SmartEnemy(int x, int y, ID id, Handler handler) {

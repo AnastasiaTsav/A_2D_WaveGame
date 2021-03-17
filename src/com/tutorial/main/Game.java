@@ -1,8 +1,6 @@
 package com.tutorial.main;
 
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
 
@@ -20,11 +18,11 @@ public class Game extends Canvas implements Runnable{
 	public static boolean paused = false;
 	public int diff = 0;
 	//0=normal, 1=hard//
-	private Random r;
-	private Handler handler;
-	private HUD hud;
-	private Spawn spawner;
-	private Menu menu;
+	private final Random r;
+	private final Handler handler;
+	private final HUD hud;
+	private final Spawn spawner;
+	private final Menu menu;
 	
 	public enum STATE{
 		Menu,
@@ -32,10 +30,10 @@ public class Game extends Canvas implements Runnable{
 		Help,
 		Game,
 		End
-	};
-	
+	}
+
 	public static STATE gameState = STATE.Menu;
-	
+
 	public Game() {
 		handler = new Handler();	
 		hud = new HUD();
@@ -45,6 +43,7 @@ public class Game extends Canvas implements Runnable{
 	
 		
 		new Window(WIDTH, HEIGHT, "Lets Build a Game!", this);
+
 
 		spawner = new Spawn(handler, hud,this);
 		r = new Random();
@@ -85,7 +84,6 @@ public class Game extends Canvas implements Runnable{
 		double ns = 1000000000 / amountOfTicks;
 		double delta = 0;
 		long timer = System.currentTimeMillis();
-		int frames = 0;
 		while(running) {
 			long now = System.nanoTime();
 			delta += (now - lastTime) / ns;
@@ -96,12 +94,9 @@ public class Game extends Canvas implements Runnable{
 			}
 			if(running)
 				render();
-			frames++;
-			
+
 			if(System.currentTimeMillis() - timer > 1000) {
 				timer += 1000;
-				//System.out.println("FPS: " + frames);
-				frames = 0;
 			}
 		}
 		stop();
@@ -167,15 +162,12 @@ public class Game extends Canvas implements Runnable{
 	
 	public static int clamp(int y, int min, int max) {
 		if(y >= max)
-			return y = max;
-		else if (y <= min)
-			return y = min;
-		else
-			return y;
+			return max;
+		else return Math.max(y, min);
 	}
 	
 	
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		new Game();
 	}
 
